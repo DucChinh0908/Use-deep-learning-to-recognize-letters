@@ -36,10 +36,8 @@ s = 1
 with open("DataTraining.csv","r") as csv_file:
     res = csv.reader(csv_file)
     for d in res:
-        if s <= 56081:
-            s += 1
-            data.append(d)
-        else: break
+        s += 1
+        data.append(d)
 
 trainData = []
 trainLabel = []
@@ -106,3 +104,4 @@ testy = to_categorical(testy,N_CLASSES)
 model.fit(trainx,trainy,n_epoch=N_EPOCHS,validation_set=(valx,valy),show_metric=True)
 
 model.save('ai.tflearn')
+
